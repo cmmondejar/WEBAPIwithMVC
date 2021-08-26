@@ -1,0 +1,55 @@
+﻿
+@model IEnumerable<MVCCore.Models.TimeTracking>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.employeeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clockInTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clockOutTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isActive)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in ViewBag.result)
+        {
+        <tr>
+            <td>
+                @emp.employeeName
+            </td>
+            <td>
+                @emp.clockInTime
+            </td>
+            <td>
+                @emp.clockOutTime
+            </td>
+            <td>
+                @emp.isActive
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@emp.ID">Edit</a>
+                <a asp-action="Delete" asp-route-id="@emp.ID">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

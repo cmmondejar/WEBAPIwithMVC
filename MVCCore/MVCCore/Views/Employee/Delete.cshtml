@@ -1,0 +1,38 @@
+﻿
+@model MVCCore.Models.TimeTracking
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<div>
+    <h4>Employee Information</h4>
+    <hr />
+    <form asp-action="Delete">
+        <dl class="d-lg-none">
+            <dt>
+                @Html.DisplayNameFor(model => model.employeeName) :  @Html.DisplayFor(model => model.employeeName)
+            </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.clockInTime) :  @Html.DisplayFor(model => model.clockInTime)
+            </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.clockOutTime) : @Html.DisplayFor(model => model.clockOutTime)
+            </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.isActive) : @Html.DisplayFor(model => model.isActive)
+            </dt>
+        </dl>
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index"> Back to List</a>
+    </form>
+</div>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
